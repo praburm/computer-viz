@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-platform-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-platform
+  template:
+    metadata:
+      labels:
+        app: image-platform
+    spec:
+      containers:
+      - name: app
+        image: image-platform-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+
